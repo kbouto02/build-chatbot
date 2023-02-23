@@ -211,7 +211,7 @@ def verify_token(token):
 @app.get('/coverages/aid/<string:aid>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
-def get_coverage_ceid(aid):
+def get_coverage_aid(aid):
     """Coverage record by AID
     Retrieve a single coverage record by its AID
     """
@@ -222,7 +222,7 @@ def get_coverage_ceid(aid):
 @app.get('/coverages/paid/<string:paid>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
-def get_coverage_ceid(paid):
+def get_coverage_paid(paid):
     """Coverage record by PAID
     Retrieve a single coverage record by its PAID
     """
@@ -270,7 +270,7 @@ def get_coverages(query):
 @app.auth_required(auth)
 def create_coverage(data):
     """Insert a new coverage record
-    Insert a new coverage record with the given attributes. Its new CEID is returned.
+    Insert a new coverage record with the given attributes. Its new AID is returned.
     """
     coverage = CoverageModel(**data)
     db.session.add(coverage)
