@@ -1,6 +1,6 @@
 {
   "info": {
-    "title": "Coverages API for Watson Assistant",
+    "title": "Build Coverages API for Watson Assistant",
     "version": "1.0.0"
   },
   "tags": [],
@@ -150,7 +150,7 @@
           }
         },
         "summary": "Insert a new coverage record",
-        "description": "Insert a new coverage record with the given attributes. Its new CEID is returned.",
+        "description": "Insert a new coverage record with the given attributes. Its new AID is returned.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -219,12 +219,12 @@
         ]
       }
     },
-    "/coverages/ceid/{ceid}": {
+    "/coverages/aid/{aid}": {
       "get": {
         "parameters": [
           {
             "in": "path",
-            "name": "ceid",
+            "name": "aid",
             "schema": {
               "type": "string"
             },
@@ -263,8 +263,60 @@
             "description": "Not found"
           }
         },
-        "summary": "Coverage record by CEID",
-        "description": "Retrieve a single coverage record by its CEID",
+        "summary": "Coverage record by AID",
+        "description": "Retrieve a single coverage record by its AID",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "/coverages/paid/{paid}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "paid",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoverageOut"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPError"
+                }
+              }
+            },
+            "description": "Authentication error"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPError"
+                }
+              }
+            },
+            "description": "Not found"
+          }
+        },
+        "summary": "Coverage record by PAID",
+        "description": "Retrieve a single coverage record by its PAID",
         "security": [
           {
             "ApiKeyAuth": []
@@ -307,8 +359,8 @@
             "description": "Not found"
           }
         },
-        "summary": "Delete an coverage record by CEID",
-        "description": "Delete a single coverage record identified by its CEID.",
+        "summary": "Delete an coverage record by AID",
+        "description": "Delete a single coverage record identified by its AID.",
         "security": [
           {
             "ApiKeyAuth": []
@@ -448,7 +500,19 @@
       "CoverageOut": {
         "type": "object",
         "properties": {
-          "motion": {
+          "aid": {
+            "type": "string"
+          },
+          "paid": {
+            "type": "string"
+          },
+          "shortname": {
+            "type": "string"
+          },
+          "ips": {
+            "type": "string"
+          },
+          "crosspts": {
             "type": "string"
           },
           "ptsauto": {
@@ -457,49 +521,13 @@
           "ptsda": {
             "type": "string"
           },
-          "shortname": {
+          "ptscloud": {
             "type": "string"
           },
-          "ceid": {
+          "ptssus": {
             "type": "string"
           },
-          "mgrdaat": {
-            "type": "string"
-          },
-          "bpspubcloud": {
-            "type": "string"
-          },
-          "vadptspow": {
-            "type": "string"
-          },
-          "vadptsstor": {
-            "type": "string"
-          },
-          "vadptssw": {
-            "type": "string"
-          },
-          "crosstps": {
-            "type": "string"
-          },
-          "bpspow": {
-            "type": "string"
-          },
-          "bpsstor": {
-            "type": "string"
-          },
-          "bpsz": {
-            "type": "string"
-          },
-          "bpsda": {
-            "type": "string"
-          },
-          "bpsauto": {
-            "type": "string"
-          },
-          "bpssec": {
-            "type": "string"
-          },
-          "bpssus": {
+          "ptssec": {
             "type": "string"
           },
           "ptspow": {
@@ -508,16 +536,10 @@
           "ptsstor": {
             "type": "string"
           },
-          "ptsz": {
+          "bpssec": {
             "type": "string"
           },
-          "ptssec": {
-            "type": "string"
-          },
-          "ptssus": {
-            "type": "string"
-          },
-          "ibmfin": {
+          "labmgr": {
             "type": "string"
           }
         }
@@ -539,7 +561,27 @@
       "CoverageIn": {
         "type": "object",
         "properties": {
-          "motion": {
+          "aid": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "paid": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "shortname": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ips": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "crosspts": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -554,72 +596,17 @@
             "minLength": 0,
             "maxLength": 255
           },
-          "shortname": {
+          "ptscloud": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "mgrdaat": {
+          "ptssus": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "bpspubcloud": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "vadptspow": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "vadptsstor": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "vadptssw": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "crosstps": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpspow": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpsstor": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpsz": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpsda": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpsauto": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpssec": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "bpssus": {
+          "ptssec": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -634,39 +621,21 @@
             "minLength": 0,
             "maxLength": 255
           },
-          "ptsz": {
+          "bpssec": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "ptssec": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptssus": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ibmfin": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ceid": {
+          "labmgr": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           }
         },
         "required": [
-          "motion",
-          "ptsauto",
-          "ptsda",
-          "mgrdaat",
+          "aid",
           "shortname",
-          "ceid"
+          "paid"
         ]
       }
     },
