@@ -158,7 +158,7 @@ class CoverageModel(db.Model):
 class CoverageOutSchema(Schema):
     cid = Integer()
     aid = String()
-    paid = Sting()
+    paid = String()
     shortname = String()
     ips = String()
     crosspts = String()
