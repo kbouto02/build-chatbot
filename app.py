@@ -138,20 +138,30 @@ class CoverageModel(db.Model):
     __table_args__ = TABLE_ARGS
     cid = db.Column('CID',db.Integer, primary_key=True)
     aid = db.Column('AID',db.String(255))
-    paid = db.Column('PAID',db.String(255))
     shortname = db.Column('PARTNAME',db.String(255))
+    paid = db.Column('PAID',db.String(255))
+    acctname = db.Column('PAN',db.String(255))
     ips = db.Column('IPS',db.String(255))
+    ipsm = db.Column('IPSM',db.String(255))
+    ipssec = db.Column('IPSSEC',db.String(255))
+    ipssecm = db.Column('IPSSECM',db.String(255))
+    ipsturbo = db.Column('IPSTURBO',db.String(255))
+    ipsturbom = db.Column('IPSTURBOM',db.String(255))
     crosspts = db.Column('CROSSPTS',db.String(255))
-    ptsauto = db.Column('PTSAUTO',db.String(255))
-    ptsda = db.Column('PTSDA',db.String(255))
-    ptscloud = db.Column('PTSCLOUD',db.String(255))
-    ptssus = db.Column('PTSSUS',db.String(255))
+    crossptsm = db.Column('CROSSPTSM',db.String(255))
     ptssec = db.Column('PTSSEC',db.String(255))
+    ptssecm = db.Column('PTSSECM',db.String(255))
+    ptssus = db.Column('PTSSUS',db.String(255))
+    ptssusm = db.Column('PTSSUSM',db.String(255))
     ptspow = db.Column('PTSPOW',db.String(255))
+    ptspowm = db.Column('PTSPOWM',db.String(255))
     ptsstor = db.Column('PTSSTOR',db.String(255))
-    bpssec = db.Column('BPSSEC',db.String(255))
-    labmgr = db.Column('LABMGR',db.String(255))
-    
+    ptsstorm = db.Column('PTSSTORM',db.String(255))
+    ptsz = db.Column('PTSZ',db.String(255))
+    ptszm = db.Column('PTSZM',db.String(255))
+    ptscloud = db.Column('PTSCLOUD',db.String(255))
+    ptscloud = db.Column('PTSCLOUD',db.String(255))
+   
 
 
 # the Python output for Coverages
