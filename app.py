@@ -294,6 +294,18 @@ def get_coverage_name(short_name):
     return CoverageModel.query.filter(CoverageModel.shortname.ilike(search)).first()
 
 
+# retrieve a single coverage record by preview account name
+@app.get('/coverages/name/<string:acct_name>')
+@app.output(CoverageOutSchema)
+@app.auth_required(auth)
+def get_coverage_name(acct_name):
+    """Coverage record by name
+    Retrieve a single coverage record by its preview account name
+    """
+    search="%{}%".format(acct_name.replace("+","_"))
+    return CoverageModel.query.filter(CoverageModel.acctname.ilike(search)).first()
+
+
 # get all coverages
 @app.get('/coverages')
 @app.input(CoverageQuerySchema, 'query')
