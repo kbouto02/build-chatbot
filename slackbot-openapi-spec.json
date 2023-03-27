@@ -548,43 +548,73 @@
           "aid": {
             "type": "string"
           },
+          "shortname": {
+            "type": "string"
+          },
           "paid": {
             "type": "string"
           },
-          "shortname": {
+          "acctname": {
             "type": "string"
           },
           "ips": {
             "type": "string"
           },
+          "ipsm": {
+            "type": "string"
+          },
+          "ipssec": {
+            "type": "string"
+          },
+          "ipssecm": {
+            "type": "string"
+          },
+          "ipsturbo": {
+            "type": "string"
+          },
+          "ipsturbom": {
+            "type": "string"
+          },
           "crosspts": {
             "type": "string"
           },
-          "ptsauto": {
-            "type": "string"
-          },
-          "ptsda": {
-            "type": "string"
-          },
-          "ptscloud": {
-            "type": "string"
-          },
-          "ptssus": {
+          "crossptsm": {
             "type": "string"
           },
           "ptssec": {
             "type": "string"
           },
+          "ptssecm": {
+            "type": "string"
+          },
+          "ptssus": {
+            "type": "string"
+          },
+          "ptssusm": {
+            "type": "string"
+          },
           "ptspow": {
+            "type": "string"
+          },
+          "ptspowm": {
             "type": "string"
           },
           "ptsstor": {
             "type": "string"
           },
-          "bpssec": {
+          "ptsstorm": {
             "type": "string"
           },
-          "labmgr": {
+          "ptsz": {
+            "type": "string"
+          },
+          "ptszm": {
+            "type": "string"
+          },
+          "ptscloud": {
+            "type": "string"
+          },
+          "ptscloudm": {
             "type": "string"
           }
         }
@@ -611,12 +641,17 @@
             "minLength": 0,
             "maxLength": 255
           },
+          "shortname": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
           "paid": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "shortname": {
+          "acctname": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -626,27 +661,37 @@
             "minLength": 0,
             "maxLength": 255
           },
+          "ipsm": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ipssec": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ipssecm": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ipsturbo": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ipsturbom": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
           "crosspts": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "ptsauto": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptsda": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptscloud": {
-            "type": "string",
-            "minLength": 0,
-            "maxLength": 255
-          },
-          "ptssus": {
+          "crossptsm": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -656,7 +701,27 @@
             "minLength": 0,
             "maxLength": 255
           },
+          "ptssecm": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptssus": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptssusm": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
           "ptspow": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptspowm": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
@@ -666,12 +731,27 @@
             "minLength": 0,
             "maxLength": 255
           },
-          "bpssec": {
+          "ptsstorm": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
           },
-          "labmgr": {
+          "ptsz": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptszm": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptscloud": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255
+          },
+          "ptscloudm": {
             "type": "string",
             "minLength": 0,
             "maxLength": 255
