@@ -215,9 +215,9 @@ class CoverageOutSchema(Schema):
 # the Python input for Coverages
 class CoverageInSchema(Schema):
     aid = String(required=True, validate=Length(0, 255))
-    shortname =String(required=True, validate=Length(0, 255))
-    paid =String(required=True, validate=Length(0, 255))
-    acctname =String(required=True, validate=Length(0, 255))
+    shortname = String(required=True, validate=Length(0, 255))
+    paid = String(required=True, validate=Length(0, 255))
+    acctname = String(required=True, validate=Length(0, 255))
     ips = String(required=True, validate=Length(0, 255))
     ipsm = String(required=True, validate=Length(0, 255))
     ipssec = String(required=True, validate=Length(0, 255))
@@ -298,8 +298,8 @@ def get_coverage_name(short_name):
 @app.get('/coverages/acct/<string:acct_name>')
 @app.output(CoverageOutSchema)
 @app.auth_required(auth)
-def get_coverage_name(acct_name):
-    """Coverage record by name
+def get_coverage_acct(acct_name):
+    """Coverage record by account name
     Retrieve a single coverage record by its preview account name
     """
     search="%{}%".format(acct_name.replace("+","_"))
